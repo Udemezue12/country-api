@@ -1,7 +1,10 @@
 from flask import Flask
 from country_project import app
+from flask_cors import CORS
 # from flask_sslify import SSLify
    
+
+CORS(app)
 
 if __name__ == '__main__':
     # sslify = SSLify(app)

@@ -1,4 +1,6 @@
 import os
+from flask_cors import CORS
+
 from flask import Flask
 from flask_mail import Mail
 from dotenv import load_dotenv
@@ -26,6 +28,7 @@ app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD')
 
 csrf = CSRFProtect(app)
 mail = Mail(app)
+CORS(app)
 
 application = app
 

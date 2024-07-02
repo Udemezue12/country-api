@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     function fetchCountries() {
-        fetch('/state/countries')
+        fetch('https://country-api-1.onrender.com//state/countries')
             .then(response => response.json())
             .then(data => {
                 const countrySelect = document.getElementById('country');

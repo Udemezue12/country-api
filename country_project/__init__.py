@@ -23,6 +23,7 @@ app.register_blueprint(passenger, url_prefix='/passenger')
 
 login_manager.init_app(app)
 mail.init_app(app)
+
 # db.init_app(app)
 app.config.from_object(Config)
 

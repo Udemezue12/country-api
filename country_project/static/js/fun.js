@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Selected country: ${selectedCountry}`);
 
         if (selectedCountry) {
-            fetch(`/state/get_states/${selectedCountry}`)
+            fetch(`https://country-api-1.onrender.com/state/get_states/${selectedCountry}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);  // Log the response data to see what's returned

@@ -1,5 +1,5 @@
 .env
 /migrations/
 /env/
-/driver_project/static/js/min.js/
-/driver_project/static/js/fun.js/
+/country_project/static/js/min.js/
+/country_project/static/js/fun.js/

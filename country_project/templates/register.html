@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="projects" class="py-5">
+    
+    
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center shadow-sm" data-aos="zoom-out">
+                    <a href="{{ url_for('passenger.register') }}" class="stretched-link"></a>
+                    <div class="card-body">
+                        <h3 class="card-title"><strong>Users</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+</section>
+
+<style>
+    #projects {
+        background-color: #a04f8e;
+    }
+    .card {
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card-body {
+        padding: 1.5rem;
+    }
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+    .stretched-link::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+</style>
+
+{% endblock %}

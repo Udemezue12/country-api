@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+<style>
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+#api-key-display {
+    color: #17a2b8;
+    font-weight: bold;
+}
+</style>
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Home Page</h1>
+    </div>
+    <div class="card-body">
+        <form id="generate-api-key-form">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Generate API Key</button>
+            </div>
+        </form>
+        <p id="api-key-display"></p>
+
+        <form>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" class="form-control">
+                    <option value="">Select a country</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" class="form-control">
+                    <option value="">Select a state</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/static/js/min.js"></script>
+
+
+
+
+
+
+{% endblock  %}

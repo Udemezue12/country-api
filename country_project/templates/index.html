@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container jigga">
+    <div>
+
+        <h1 class="head">Welcome  to the School Portal</h1>
+        <a href="#" class="link-arrow,btn"><strong>Click Here to go to My Dashboard</strong></a>
+    </div>
+
+</div>
+
+<style>
+    /* Custom styles for About Us page */
+    .about-container {
+        background-color: #5f8ab5;
+        padding: 50px 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    .jigga {
+        background-color: rgb(87, 91, 150);
+    }
+
+    .head{
+        color: white;
+    }
+
+    .team-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .team-member {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: hsl(0, 22%, 83%);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-member h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<div class="container mt-5 jigga">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="about-container">
+                <h2 class="text-center mb-4">About Us</h2>
+                <p class="text-center">Welcome to our website! We are Astro Technical School</p>
+                <p class="text-center">Our mission is to enlighten people.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+{% endblock %}

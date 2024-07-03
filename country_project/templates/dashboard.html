@@ -74,16 +74,34 @@
 
                     </pre>
                     <pre>
-    country_choices = https://country-api-1.onrender.com/username/password/country/countries                    
+def fetch_country_choices():
+    url = "https://country-api-1.onrender.com/country/countries"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return [(country, country) for country in response.json()]
+    else:
+        return []
 
 
-     def passenger_form():
+def fetch_states():
+    url = "https://country-api-1.onrender.com/states/states"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return {} 
+
+states = fetch_states()           
+
+
+    def passenger_form():
     form = UserRegistrationForm()
-    form.country.choices = country_choices()
+    
     if request.method == 'POST':
         selected_country = request.form.get('country')
         form.state.choices = [(state, state)
                               for state in states.get(selected_country, [])]
+        form.country.choices = fetch_country_choices()
            
         try:
             user = User(
@@ -141,7 +159,7 @@
         date_of_birth = DateField(
             'Date of Birth', format='%Y-%m-%d', validators=[DataRequired()])
         
-        country = SelectField('Country', validators=[DataRequired()])
+        country = SelectField('Country', validators=[DataRequired()], validate_choice=False)
         state = SelectField('State', choices=[], validators=[DataRequired()])
                     
         phone_number = StringField('Phone Number', validators=[

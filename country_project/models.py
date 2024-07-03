@@ -53,8 +53,7 @@ class APIUser(db.Model):
     last_name = db.Column(db.String(100), nullable=False)
 
     date_of_birth = db.Column(db.Date(), nullable=False)
-    country = db.Column(db.String(100), nullable=False)
-    state = db.Column(db.String(100), nullable=False)
+    
     phone_number = db.Column(db.String(20), nullable=False)
     user = db.relationship(
         'User', backref=db.backref('passenger', uselist=False))

@@ -1,15 +1,14 @@
-import os
 import requests
+import os
+from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from flask_login import login_required, current_user
-from werkzeug.utils import secure_filename
 from sqlalchemy.exc import IntegrityError
 from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, Blueprint
 from country_project.forms import APIUserForm, APIUserRegistrationForm
 from country_project.models import User, APIUser
 from country_project.login import login_manager
 from country_project.database import db
-from country_project.utils import IMAGE, DOCUMENT
 import logging
 from country_project.code.states import states
 from country_project.country.country_list import country_choices
@@ -80,8 +79,7 @@ def passenger_form(user_id):
                 last_name=form.last_name.data,
                 date_of_birth=form.date_of_birth.data,
                 phone_number=form.phone_number.data,
-                country=form.country.data,
-                state=form.state.data,
+                
 
             )
             db.session.add(passenger)

@@ -1,46 +1,17 @@
 import os
 from dotenv import load_dotenv
 import stripe
-from flask import render_template, Blueprint, request, url_for, redirect, jsonify
+from flask import render_template, Blueprint, request, url_for, redirect, jsonify, flash
 from country_project.database import db
 from country_project.models import User
+from flask_login import current_user, login_required
 # from country_project.states import states
 
 
 # @login_manager.user_loader
 # def load_user(user):
 #     return User.query.get(int(user))
-states = {
-    "Nigeria": [
-        "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue",
-        "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe",
-        "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara",
-        "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
-        "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "Federal Capital Territory (Abuja)"
-    ],
-    "United States": [
-        "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-        "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
-        "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-        "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
-        "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-        "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-        "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-        "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
-        "Washington", "West Virginia", "Wisconsin", "Wyoming"
-    ],
-    "India": [
-        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
-        "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
-        "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya",
-        "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim",
-        "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand",
-        "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
-        "Dadra and Nagar Haveli and Daman and Diu", "Lakshadweep", "Delhi",
-        "Puducherry", "Ladakh", "Jammu and Kashmir"
-    ]
-    # Add more countries and states as needed
-}
+
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 load_dotenv()
@@ -56,6 +27,17 @@ def index():
     return render_template('index.html')
 
 
+@core.route('/dashboard')
+@login_required
+def dashboard():
+    if current_user.role != 'api-user':
+
+        flash('Unauthorized access!', 'danger')
+        return redirect(url_for('core.index'))
+    return render_template('dashboard.html', name=current_user.username)
+
+
+@login_required
 @core.route('/skip')
 def skip():
     return redirect(url_for('users.login'))

@@ -65,18 +65,18 @@ def logout():
     return redirect(url_for('core.index'))
 
 
-@users.route('/dashboard')
-@login_required
-def dashboard():
-    if current_user.role == 'admin':
-        return render_template('admin_dashboard.html')
-    elif current_user.role == 'passenger':
-        return render_template('passenger_dashboard.html')
-    elif current_user.role == 'driver':
-        return render_template('driver_dashboard.html')
+# @users.route('/dashboard')
+# @login_required
+# def dashboard():
+#     if current_user.role == 'admin':
+#         return render_template('admin_dashboard.html')
+#     elif current_user.role == 'passenger':
+#         return render_template('passenger_dashboard.html')
+#     elif current_user.role == 'driver':
+#         return render_template('driver_dashboard.html')
 
-    else:
-        return render_template('index.html')
+#     else:
+#         return render_template('index.html')
 
 
 @users.route('/updating_profile', methods=['GET', 'POST'])

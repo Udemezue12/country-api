@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}School Portal{% endblock %}</title>
+    <title>{% block title %}ASTROTECH API{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/fine.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"/>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <style>
@@ -106,7 +107,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{ url_for('core.index') }}">School Portal</a>
+        <a class="navbar-brand" href="{{ url_for('core.index') }}">COUNTRIES AND STATES API</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -114,13 +115,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('core.index') }}">Home</a>
-                    </li>
+                   
+
                     
-                    {% if current_user.role == 'user' %}
+                    {% if current_user.role == 'api-user' %}
+                        
+                        
+                        
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('passenger.passenger_dashboard') }}">Dashboard</a>
+                            <a class="nav-link" href="{{url_for('core.dashboard')}}">Instructions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('secure.display_api_key')}}">View Api Keys</a>
                         </li>
                         
                     
@@ -136,9 +143,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('users.register') }}">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('secure.generate_api_key')}}">Generate API Key</a>
-                    </li>
+                   
                    
                     
                 {% endif %}
@@ -170,6 +175,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/api.js"></script>
+
     
 
 

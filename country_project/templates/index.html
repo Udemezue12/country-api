@@ -4,8 +4,8 @@
 <div class="container jigga">
     <div>
 
-        <h1 class="head">Welcome  to the School Portal</h1>
-        <a href="#" class="link-arrow,btn"><strong>Click Here to go to My Dashboard</strong></a>
+        <h1 class="head">Welcome {{current_user.username}}</h1>
+        <a href="{{url_for('core.dashboard')}}" class="link-arrow,btn"><strong>Click Here to go to View the Instruction on how to use it</strong></a>
     </div>
 
 </div>
@@ -35,7 +35,7 @@
         margin-bottom: 20px;
         padding: 15px;
         border-radius: 5px;
-        background-color: hsl(0, 22%, 83%);
+        background-color: hsl(51, 28%, 48%);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
@@ -51,8 +51,9 @@
         <div class="col-lg-8">
             <div class="about-container">
                 <h2 class="text-center mb-4">About Us</h2>
-                <p class="text-center">Welcome to our website! We are Astro Technical School</p>
-                <p class="text-center">Our mission is to enlighten people.</p>
+                <p class="text-center">Welcome to our website! We are here to help with the Auto-population of Countries and their various States/District/Provinces</p>
+                <p class="text-center mb-4">Some Countries were showned by states,district and provinces </p>
+                <p class="text-center">Our mission is to enlighten people,Please bear with Us if some information seems outdated or incorrect.</p>
                 
             </div>
         </div>

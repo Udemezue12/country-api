@@ -2,7 +2,7 @@ import os
 from cryptography.fernet import Fernet
 from functools import wraps
 from flask_login import current_user
-from flask import jsonify, Blueprint, request
+from flask import jsonify, Blueprint, request, render_template, redirect, url_for
 from flask_login import current_user, login_required
 
 
@@ -44,4 +44,16 @@ def require_api_key(func):
 def generate_api_key():
     user = current_user
     user.generate_api_key()
-    return jsonify({'api_key': user.api_key}), 200
+    # return jsonify({'api_key': user.api_key}), 200\
+    return redirect(url_for('secure.display_api_key'))
+    
+@secure.route('/display_api_key', methods=['GET'])
+@login_required
+def display_api_key():
+    api_key = request.args.get('api_key')
+    return render_template('display_api_key.html', api_key=api_key)
+
+@secure.route('/generate_api_key')
+@login_required
+def secure_generate_api_key():
+    return render_template('generate_api_key.html')

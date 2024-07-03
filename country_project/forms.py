@@ -45,10 +45,10 @@ class APIUserForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired()])
     date_of_birth = DateField(
         'Date of Birth', format='%Y-%m-%d', validators=[DataRequired()])
-    country = SelectField('Country',
-                          validators=[DataRequired()])
-    # country = SelectField('Country', validators=[DataRequired()])
-    state = SelectField('State', choices=[], validators=[DataRequired()])
+    # country = SelectField('Country',
+    #                       validators=[DataRequired()])
+    # # country = SelectField('Country', validators=[DataRequired()])
+    # state = SelectField('State', choices=[], validators=[DataRequired()])
 
     phone_number = StringField('Phone Number', validators=[
         DataRequired(),

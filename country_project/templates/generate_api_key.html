@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 10px 10px 0 0;
+            padding: 10px 20px;
+            font-size: 1.25em;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Generate API Key
+            </div>
+            <div class="card-body">
+                <form id="generate-api-key-form">
+                    <button type="submit" class="btn btn-primary">Generate API Key</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generate-api-key-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            fetch('/secure/generate_api_key', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.api_key) {
+                    window.location.href = `/secure/display_api_key?api_key=${data.api_key}`;
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+{% endblock  %}

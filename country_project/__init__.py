@@ -6,7 +6,7 @@ from country_project.users.views import users
 from country_project.passenger.views import passenger
 # from country_project.driver.views import driver
 from country_project.code.states import state
-from country_project.country.country_list import country
+from country_project.country.country_list import country, my_state
 from country_project.database import db, mail, application
 from country_project.secure import secure
 from config import Config
@@ -18,7 +18,7 @@ app.register_blueprint(state)
 
 app.register_blueprint(secure)
 app.register_blueprint(passenger, url_prefix='/passenger')
-# app.register_blueprint(ride, url_prefix='/ride')
+app.register_blueprint(my_state)
 app.register_blueprint(country)
 
 login_manager.init_app(app)

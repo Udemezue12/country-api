@@ -1,11 +1,19 @@
-from flask import Blueprint
+from flask import Blueprint, Response, json
 from flask_login import current_user, login_required
+from country_project.states.state_list import states as nation
+
 
 country = Blueprint('country', __name__)
+my_state = Blueprint('my_state', __name__)
+
+
+@my_state.route('/states/states/', methods=['GET'])
+def states():
+    return Response(json.dumps(nation), mimetype='application/json')
 
 
 @country.route('/country/countries', methods=['GET'])
-@login_required
+# @login_required
 def country_choices():
     return [
 

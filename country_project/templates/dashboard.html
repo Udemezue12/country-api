@@ -181,6 +181,20 @@ states = fetch_states()
                 </div>
                     <div class="card-body">
                         <pre>
+                            <div class="form-group">
+                                {{ form.country.label(class="form-label") }}
+                                {{ form.country(class="form-control", id="country") }}
+                                {% for error in form.country.errors %}
+                                <small class="form-text text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.state.label(class="form-label") }}
+                                {{ form.state(class="form-control", id="state") }}
+                                {% for error in form.state.errors %}
+                                <small class="form-text text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
 
                             <p><strong>Make sure you add the respective id to state and country form tags</strong></p>
                         </pre>

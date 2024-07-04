@@ -456,7 +456,104 @@ states = {
         'Corsica', 'Grand Est', 'Hauts-de-France', 'Île-de-France', 'Normandy', 'Nouvelle-Aquitaine', 
         'Occitanie', 'Pays de la Loire', 'Provence-Alpes-Côte d\'Azur', 'French Guiana', 'Guadeloupe', 
         'Martinique', 'Mayotte', 'Réunion', 'Saint Barthélemy', 'Saint Martin', 'Saint Pierre and Miquelon'
+    ],
+    'Gabon': [
+        'Estuaire', 'Haut-Ogooué', 'Moyen-Ogooué', 'Ngounié', 'Nyanga', 'Ogooué-Ivindo', 
+        'Ogooué-Lolo', 'Ogooué-Maritime', 'Woleu-Ntem'
+    ],
+     'The Gambia': [
+        'Banjul', 'Central River', 'Lower River', 'North Bank', 'Upper River', 'Western'
+    ],
+    'Germany': [
+        'Baden-Württemberg', 'Bavaria', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 
+        'Hesse', 'Lower Saxony', 'Mecklenburg-Vorpommern', 'North Rhine-Westphalia', 
+        'Rhineland-Palatinate', 'Saarland', 'Saxony', 'Saxony-Anhalt', 'Schleswig-Holstein', 
+        'Thuringia'
+    ],
+    'Greece': [
+        'Attica', 'Central Greece', 'Central Macedonia', 'Crete', 'Eastern Macedonia and Thrace', 
+        'Epirus', 'Ionian Islands', 'Mount Athos', 'North Aegean', 'Peloponnese', 'South Aegean', 
+        'Thessaly', 'Western Greece', 'Western Macedonia'
+    ],
+    'Grenada': [
+        'Saint Andrew', 'Saint David', 'Saint George', 'Saint John', 'Saint Mark', 'Saint Patrick'
+    ],
+    'Guam': [
+        'Agana Heights', 'Agat', 'Asan-Maina', 'Barrigada', 'Chalan Pago-Ordot', 'Dededo', 
+        'Hagåtña', 'Inarajan', 'Mangilao', 'Merizo', 'Mongmong-Toto-Maite', 'Piti', 'Santa Rita', 
+        'Sinajana', 'Talofofo', 'Tamuning', 'Umatac', 'Yigo', 'Yona'
+    ],
+    'Guatemala': [
+        'Alta Verapaz', 'Baja Verapaz', 'Chimaltenango', 'Chiquimula', 'El Progreso', 
+        'Escuintla', 'Guatemala', 'Huehuetenango', 'Izabal', 'Jalapa', 'Jutiapa', 
+        'Petén', 'Quetzaltenango', 'Quiché', 'Retalhuleu', 'Sacatepéquez', 'San Marcos', 
+        'Santa Rosa', 'Sololá', 'Suchitepéquez', 'Totonicapán', 'Zacapa'
+    ],
+    'Guinea': [
+        'Boké', 'Conakry', 'Faranah', 'Kankan', 'Kindia', 'Labé', 'Mamou', 'Nzérékoré'
+    ],
+    'Guinea-Bissau': [
+        'Bafatá', 'Biombo', 'Bissau', 'Bolama-Bijagos', 'Cacheu', 'Gabú', 'Oio', 'Quinara', 'Tombali'
+    ],
+    'Guyana': [
+        'Barima-Waini', 'Cuyuni-Mazaruni', 'Demerara-Mahaica', 'East Berbice-Corentyne', 
+        'Essequibo Islands-West Demerara', 'Mahaica-Berbice', 'Pomeroon-Supenaam', 
+        'Potaro-Siparuni', 'Upper Demerara-Berbice', 'Upper Takutu-Upper Essequibo'
+    ],
+    'Haiti': [
+        'Artibonite', 'Centre', 'Grand\'Anse', 'Nippes', 'Nord', 'Nord-Est', 'Nord-Ouest', 
+        'Ouest', 'Sud', 'Sud-Est'
+    ],
+    'Honduras': [
+        'Atlántida', 'Choluteca', 'Colón', 'Comayagua', 'Copán', 'Cortés', 'El Paraíso', 
+        'Francisco Morazán', 'Gracias a Dios', 'Intibucá', 'Islas de la Bahía', 'La Paz', 
+        'Lempira', 'Ocotepeque', 'Olancho', 'Santa Bárbara', 'Valle', 'Yoro'
+    ],
+    'Hong Kong': [
+        'Central and Western', 'Eastern', 'Southern', 'Wan Chai', 'Sham Shui Po', 
+        'Kowloon City', 'Kwun Tong', 'Wong Tai Sin', 'Yau Tsim Mong', 'Islands', 
+        'Kwai Tsing', 'North', 'Sai Kung', 'Sha Tin', 'Tai Po', 'Tsuen Wan', 
+        'Tuen Mun', 'Yuen Long'
+    ],
+     'Hungary': [
+        'Baranya', 'Bács-Kiskun', 'Békés', 'Borsod-Abaúj-Zemplén', 'Csongrád-Csanád', 
+        'Fejér', 'Győr-Moson-Sopron', 'Hajdú-Bihar', 'Heves', 'Jász-Nagykun-Szolnok', 
+        'Komárom-Esztergom', 'Nógrád', 'Pest', 'Somogy', 'Szabolcs-Szatmár-Bereg', 
+        'Tolna', 'Vas', 'Veszprém', 'Zala'
+    ],
+    'Iceland': [
+        'Capital Region', 'Eastern Region', 'Northeastern Region', 'Northwestern Region', 
+        'Southern Peninsula', 'Southern Region', 'Western Region', 'Westfjords'
+    ],
+      'Indonesia': [
+        'Aceh', 'Bali', 'Bangka Belitung Islands', 'Banten', 'Bengkulu', 'Central Java', 
+        'Central Kalimantan', 'Central Sulawesi', 'East Java', 'East Kalimantan', 'East Nusa Tenggara', 
+        'Gorontalo', 'Jakarta Special Capital Region', 'Jambi', 'Lampung', 'Maluku', 'North Kalimantan', 
+        'North Maluku', 'North Sulawesi', 'North Sumatra', 'Papua', 'Riau', 'Riau Islands', 'South Kalimantan', 
+        'South Sulawesi', 'South Sumatra', 'Southeast Sulawesi', 'West Java', 'West Kalimantan', 'West Nusa Tenggara', 
+        'West Papua', 'West Sulawesi', 'West Sumatra', 'Yogyakarta Special Region'
+    ],
+    'Ireland': [
+        'Carlow', 'Cavan', 'Clare', 'Cork', 'Donegal', 'Dublin', 'Galway', 'Kerry', 
+        'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford', 'Louth', 
+        'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon', 'Sligo', 'Tipperary', 
+        'Waterford', 'Westmeath', 'Wexford', 'Wicklow'
+    ],
+     'Iran': [
+        'Alborz', 'Ardabil', 'East Azerbaijan', 'Isfahan', 'Fars', 'Gilan', 'Golestan', 
+        'Hamadan', 'Hormozgan', 'Ilam', 'Kerman', 'Kermanshah', 'Khuzestan', 'Kohgiluyeh and Boyer-Ahmad', 
+        'Kurdistan', 'Lorestan', 'Markazi', 'Mazandaran', 'North Khorasan', 'Qazvin', 'Qom', 'Razavi Khorasan', 
+        'Semnan', 'Sistan and Baluchestan', 'South Khorasan', 'Tehran', 'West Azerbaijan', 'Yazd', 'Zanjan'
+    ],
+    'Iraq': [
+        'Al-Anbar', 'Babil', 'Baghdad', 'Basra', 'Dhi Qar', 'Diyala', 'Dohuk', 'Erbil', 
+        'Karbala', 'Kirkuk', 'Maysan', 'Muthanna', 'Najaf', 'Nineveh', 'Saladin', 
+        'Sulaymaniyah', 'Wasit'
     ]
+
+
+
+
 
 
     

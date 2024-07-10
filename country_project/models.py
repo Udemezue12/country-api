@@ -39,9 +39,11 @@ class User(db.Model, UserMixin):
         self.password = generate_password_hash(
             password).decode('utf-8') if password else None
         self.role = role
+
     def generate_api_key(self):
         self.api_key = str(uuid.uuid4())
         db.session.commit()
+
 
 class APIUser(db.Model):
     __tablename__ = 'passenger'
@@ -53,7 +55,7 @@ class APIUser(db.Model):
     last_name = db.Column(db.String(100), nullable=False)
 
     date_of_birth = db.Column(db.Date(), nullable=False)
-    
+
     phone_number = db.Column(db.String(20), nullable=False)
     user = db.relationship(
         'User', backref=db.backref('passenger', uselist=False))

@@ -1,7 +1,7 @@
 from flask import Blueprint, Response, json
 from flask_login import current_user, login_required
 from country_project.states.state_list import states as nation
-from country_project.secure import require_api_key
+# from country_project.secure import require_api_key
 
 
 country = Blueprint('country', __name__)
@@ -18,7 +18,6 @@ def states():
 @country.route('/country/countries', methods=['GET'])
 # @login_required
 # @require_api_key
-
 def country_choices():
     return [
 
@@ -59,13 +58,13 @@ def country_choices():
         ('Hong Kong', 'Hong Kong'), ('Hungary', 'Hungary'), ('Iceland',
                                                              'Iceland'), ('India', 'India'), ('Indonesia', 'Indonesia'),
         ('Iran', 'Iran'), ('Iraq', 'Iraq'), ('Ireland',
-                                                                  'Ireland'), ('Israel', 'Israel'), ('Italy', 'Italy'),
+                                             'Ireland'), ('Israel', 'Israel'), ('Italy', 'Italy'),
         ('Jamaica', 'Jamaica'), ('Japan', 'Japan'), ('Jordan',
                                                      'Jordan'), ('Kazakhstan', 'Kazakhstan'), ('Kenya', 'Kenya'),
         ('Kiribati', 'Kiribati'), ('North Korea', "North Korea"), (
             'South Korea', 'South Korea'), ('Kuwait', 'Kuwait'), ('Kyrgyzstan', 'Kyrgyzstan'),
         ('Lao People Republic', "Lao People Republic"), ('Latvia', 'Latvia'), ('Lebanon',
-                                                                                'Lebanon'), ('Lesotho', 'Lesotho'), ('Liberia', 'Liberia'),
+                                                                               'Lebanon'), ('Lesotho', 'Lesotho'), ('Liberia', 'Liberia'),
         ('Libya', 'Libya'), ('Liechtenstein', 'Liechtenstein'), ('Lithuania',
                                                                  'Lithuania'), ('Luxembourg', 'Luxembourg'), ('Macao', 'Macao'),
         ('Macedonia', 'Macedonia'), ('Madagascar', 'Madagascar'), ('Malawi',
@@ -75,7 +74,7 @@ def country_choices():
         ('Mexico', 'Mexico'), ('Micronesia, Federated States of', 'Micronesia, Federated States of'), (
             'Moldova', 'Moldova'), ('Monaco', 'Monaco'), ('Mongolia', 'Mongolia'),
         ('Montenegro', 'Montenegro'), ('Montserrat', 'Montserrat'), ('Morocco',
-                                                                      'Morocco'), ('Mozambique', 'Mozambique'), ('Myanmar', 'Myanmar'),
+                                                                     'Morocco'), ('Mozambique', 'Mozambique'), ('Myanmar', 'Myanmar'),
         ('Namibia', 'Namibia'), ('Nauru', 'Nauru'), ('Nepal',
                                                      'Nepal'), ('Netherlands', 'Netherlands'), ('New Zealand', 'New Zealand'),
         ('Nicaragua', 'Nicaragua'), ('Niger', 'Niger'), ('Nigeria',
@@ -83,7 +82,7 @@ def country_choices():
         ('Northern Mariana Islands', 'Northern Mariana Islands'), ('Norway',
                                                                    'Norway'), ('Oman', 'Oman'), ('Pakistan', 'Pakistan'), ('Palau', 'Palau'),
         ('Panama', 'Panama'), ('Papua New Guniea', 'Papua New Guinea'), ('Paraguay',
-                                                                          'Paraguay'), ('Peru', 'Peru'), ('Philippines', 'Philippines'),
+                                                                         'Paraguay'), ('Peru', 'Peru'), ('Philippines', 'Philippines'),
         ('Poland', 'Poland'), ('Portugal', 'Portugal'), ('Puerto Rico',
                                                          'Puerto Rico'), ('Qatar', 'Qatar'), ('Romania', 'Romania'),
         ('Russia', 'Russian'), ('Rawanda', 'Rwanda'), ('Saint Kitts and Nevis', 'Saint Kitts and Nevis'), (
@@ -101,9 +100,9 @@ def country_choices():
         ('Thailand', 'Thailand'), ('Timor-Leste', 'Timor-Leste'), ('Togo',
                                                                    'Togo'), ('Togo', 'Tonga'), ('Trinidad and Tobago', 'Trinidad and Tobago'),
         ('TN', 'Tunisia'), ('Turkiye(Formerly Turkey)', 'Turkiye(Turkey)'), ('Turkmenistan',
-                                                                              'Turkmenistan'), ('Tuvalu', 'Tuvalu'), ('Uganda', 'Uganda'),
+                                                                             'Turkmenistan'), ('Tuvalu', 'Tuvalu'), ('Uganda', 'Uganda'),
         ('Ukraine', 'Ukraine'), ('United Arab Emirates', 'United Arab Emirates'), ('GB',
-                                                                                    'United Kingdom'), ('United States', 'United States'), ('Uruguay', 'Uruguay'),
+                                                                                   'United Kingdom'), ('United States', 'United States'), ('Uruguay', 'Uruguay'),
         ('Uzbekistan', 'Uzbekistan'), ('Vanuatu', 'Vanuatu'), ('Venezuela',
                                                                'Venezuela'), ('Vietnam', 'Vietnam'), ('Yemen', 'Yemen'),
         ('Zambia', 'Zambia'), ('Zimbabwe', 'Zimbabwe')

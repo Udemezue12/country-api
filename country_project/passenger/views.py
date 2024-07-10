@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from flask_login import login_required, current_user
 from sqlalchemy.exc import IntegrityError
-from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, Blueprint
+from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, Blueprint, Response
 from country_project.forms import APIUserForm, APIUserRegistrationForm
 from country_project.models import User, APIUser
 from country_project.login import login_manager

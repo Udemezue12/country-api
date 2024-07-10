@@ -1,6 +1,7 @@
 from flask import Blueprint, Response, json
 from flask_login import current_user, login_required
 from country_project.states.state_list import states as nation
+from country_project.secure import require_api_key
 
 
 country = Blueprint('country', __name__)
@@ -8,12 +9,16 @@ my_state = Blueprint('my_state', __name__)
 
 
 @my_state.route('/states/states/', methods=['GET'])
+# @login_required
+# @require_api_key
 def states():
     return Response(json.dumps(nation), mimetype='application/json')
 
 
 @country.route('/country/countries', methods=['GET'])
 # @login_required
+# @require_api_key
+
 def country_choices():
     return [
 
@@ -57,9 +62,9 @@ def country_choices():
                                                                   'Ireland'), ('Israel', 'Israel'), ('Italy', 'Italy'),
         ('Jamaica', 'Jamaica'), ('Japan', 'Japan'), ('Jordan',
                                                      'Jordan'), ('Kazakhstan', 'Kazakhstan'), ('Kenya', 'Kenya'),
-        ('Kiribati', 'Kiribati'), ('North Korea', "North Korea, Democratic People's Republic of"), (
-            'Korea', 'Korea, Republic of'), ('Kuwait', 'Kuwait'), ('Kyrgyzstan', 'Kyrgyzstan'),
-        ('Lao People Republic', "Lao People  Republic"), ('Latvia', 'Latvia'), ('Lebanon',
+        ('Kiribati', 'Kiribati'), ('North Korea', "North Korea"), (
+            'South Korea', 'South Korea'), ('Kuwait', 'Kuwait'), ('Kyrgyzstan', 'Kyrgyzstan'),
+        ('Lao People Republic', "Lao People Republic"), ('Latvia', 'Latvia'), ('Lebanon',
                                                                                 'Lebanon'), ('Lesotho', 'Lesotho'), ('Liberia', 'Liberia'),
         ('Libya', 'Libya'), ('Liechtenstein', 'Liechtenstein'), ('Lithuania',
                                                                  'Lithuania'), ('Luxembourg', 'Luxembourg'), ('Macao', 'Macao'),

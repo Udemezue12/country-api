@@ -16,8 +16,7 @@ state = Blueprint('state', __name__)
 def get_countries():
     countries_list = country_choices() 
     return Response(json.dumps(countries_list), mimetype='application/json')
-#     states_list = states.get(country, [])
-#     return jsonify(states_list)
+
 
 
 @state.route('/state/get_states/<country>', methods=['GET'])

@@ -549,7 +549,173 @@ states = {
         'Al-Anbar', 'Babil', 'Baghdad', 'Basra', 'Dhi Qar', 'Diyala', 'Dohuk', 'Erbil', 
         'Karbala', 'Kirkuk', 'Maysan', 'Muthanna', 'Najaf', 'Nineveh', 'Saladin', 
         'Sulaymaniyah', 'Wasit'
+    ],
+     'Israel': [
+        'Central', 'Haifa', 'Jerusalem', 'Northern', 'Southern', 'Tel Aviv'
+    ],
+    'Italy': [
+        'Abruzzo', 'Aosta Valley', 'Apulia', 'Basilicata', 'Calabria', 'Campania', 
+        'Emilia-Romagna', 'Friuli Venezia Giulia', 'Lazio', 'Liguria', 'Lombardy', 
+        'Marche', 'Molise', 'Piedmont', 'Sardinia', 'Sicily', 'Trentino-Alto Adige', 
+        'Tuscany', 'Umbria', 'Veneto'
+    ],
+    'Jamaica': [
+        'Clarendon', 'Hanover', 'Kingston', 'Manchester', 'Portland', 'Saint Andrew', 
+        'Saint Ann', 'Saint Catherine', 'Saint Elizabeth', 'Saint James', 'Saint Mary', 
+        'Saint Thomas', 'Trelawny', 'Westmoreland'
+    ],
+    'Japan': [
+        'Aichi', 'Akita', 'Aomori', 'Chiba', 'Ehime', 'Fukui', 'Fukuoka', 'Fukushima', 
+        'Gifu', 'Gunma', 'Hiroshima', 'Hokkaido', 'Hyogo', 'Ibaraki', 'Ishikawa', 'Iwate', 
+        'Kagawa', 'Kagoshima', 'Kanagawa', 'Kochi', 'Kumamoto', 'Kyoto', 'Mie', 'Miyagi', 
+        'Miyazaki', 'Nagano', 'Nagasaki', 'Nara', 'Niigata', 'Oita', 'Okayama', 'Okinawa', 
+        'Osaka', 'Saga', 'Saitama', 'Shiga', 'Shimane', 'Shizuoka', 'Tochigi', 'Tokushima', 
+        'Tokyo', 'Tottori', 'Toyama', 'Wakayama', 'Yamagata', 'Yamaguchi', 'Yamanashi'
+    ],
+    'Jordan': [
+        'Ajloun', 'Amman', 'Aqaba', 'Balqa', 'Irbid', 'Jerash', 'Karak', 'Ma\'an', 'Madaba', 'Mafraq', 'Tafilah', 'Zarqa'
+    ],
+    'Kazakhstan': [
+        'Aktobe', 'Almaty', 'Akmola', 'Atyrau', 'East Kazakhstan', 'Mangystau', 'North Kazakhstan', 'Nur-Sultan', 'Pavlodar', 'Turkestan', 'West Kazakhstan'
+    ],
+     'Kenya': [
+        'Baringo', 'Bomet', 'Bungoma', 'Busia', 'Elgeyo-Marakwet', 'Embu', 'Garissa', 'Homa Bay', 'Isiolo', 'Kajiado', 'Kakamega', 'Kericho', 'Kiambu', 'Kilifi', 'Kirinyaga', 'Kisii', 'Kisumu', 'Kitui', 'Kwale', 'Laikipia', 'Lamu', 'Machakos', 'Makueni', 'Mandera', 'Marsabit', 'Meru', 'Migori', 'Mombasa', 'Murang\'a', 'Nairobi', 'Nakuru', 'Nandi', 'Narok', 'Nyamira', 'Nyandarua', 'Nyeri', 'Samburu', 'Siaya', 'Taita-Taveta', 'Tana River', 'Tharaka-Nithi', 'Trans Nzoia', 'Turkana', 'Uasin Gishu', 'Vihiga', 'Wajir', 'West Pokot'
+    ],
+    'Kiribati': [
+        'Gilbert Islands', 'Line Islands', 'Phoenix Islands'
+    ],
+    'North Korea': [
+        'Chagang', 'North Hamgyong', 'South Hamgyong', 'North Hwanghae', 'South Hwanghae', 'Kangwon', 'Ryanggang', 'Pyongyang', 'Nampo'
+    ],
+    'South Korea': [
+        'Seoul', 'Busan', 'Daegu', 'Incheon', 'Gwangju', 'Daejeon', 'Ulsan', 'Sejong Special Self-Governing City', 'Gyeonggi', 'Gangwon', 'North Chungcheong', 'South Chungcheong', 'North Jeolla', 'South Jeolla', 'North Gyeongsang', 'South Gyeongsang', 'Jeju Special Self-Governing Province'
+    ],
+    'Kuwait': [
+        'Al Ahmadi', 'Al Farwaniyah', 'Hawalli', 'Capital', 'Mubarak Al-Kabeer'
+    ],
+    'Kyrgyzstan': [
+        'Batken', 'Bishkek', 'Chuy', 'Jalal-Abad', 'Naryn', 'Osh', 'Talas', 'Ysyk-Köl'
+    ],
+    'Latvia': [
+        'Riga', 'Aizkraukle', 'Alūksne', 'Balvi', 'Bauska', 'Cēsis', 'Daugavpils', 'Dobele', 'Gulbene', 'Jēkabpils', 'Jelgava', 'Krāslava', 'Kuldīga', 'Liepāja', 'Limbazi', 'Ludza', 'Madona', 'Ogre', 'Preiļi', 'Rēzekne', 'Saldus', 'Sigulda', 'Talsi', 'Tukums', 'Valka', 'Valmiera', 'Ventspils'
+    ],
+    'Lao People Republic': [
+        'Attapeu', 'Bokeo', 'Bolikhamxai', 'Champasak', 'Houaphanh', 'Khammouane', 'Luang Namtha', 'Luang Prabang', 'Oudomxay', 'Phongsaly', 'Sainyabuli', 'Savannakhet', 'Sekong', 'Vientiane Prefecture', 'Vientiane Province', 'Xaisomboun', 'Xaisomboun Special Zone', 'Xekong', 'Xiangkhouang'
+    ],
+    'Lebanon': [
+        'Beirut', 'Mount Lebanon', 'North Lebanon', 'South Lebanon', 'Nabatieh', 'Bekaa'
+    ],
+    'Lesotho': [
+        'Berea', 'Butha-Buthe', 'Leribe', 'Mafeteng', 'Maseru', 'Mohale\'s Hoek', 'Mokhotlong', 'Qacha\'s Nek', 'Quthing', 'Thaba-Tseka'
+    ],
+    'Liberia': [
+        'Bomi', 'Bong', 'Gbarpolu', 'Grand Bassa', 'Grand Cape Mount', 'Grand Gedeh', 
+        'Grand Kru', 'Lofa', 'Margibi', 'Maryland', 'Montserrado', 'Nimba', 'River Cess', 
+        'River Gee', 'Sinoe'
+    ],
+    'Libya': [
+        'Ajdabiya', 'Al Wahat', 'Benghazi', 'Derna', 'Ghat', 'Jabal al Akhdar', 'Jabal al Gharbi', 
+        'Jafara', 'Jufra', 'Kufra', 'Marj', 'Misrata', 'Murqub', 'Nalut', 'Nuqat al Khams', 'Sabha', 
+        'Sirte', 'Tripoli', 'Wadi al Hayaa', 'Wadi al Shatii', 'Zawiya'
+    ],
+    'Lithuania': [
+        'Alytus County', 'Kaunas County', 'Klaipėda County', 'Marijampolė County', 'Panevėžys County', 'Šiauliai County', 'Tauragė County', 'Telšiai County', 'Utena County', 'Vilnius County'
+    ],
+    'Luxembourg': [
+        'Capellen', 'Clervaux', 'Diekirch', 'Echternach', 'Esch-sur-Alzette', 'Grevenmacher', 'Luxembourg', 'Mersch', 'Redange', 'Remich', 'Vianden', 'Wiltz'
+    ],
+    'Macao': [
+        'Nossa Senhora de Fátima', 'Santo António', 'São Francisco Xavier', 'São Lázaro', 'São Lourenço', 'São Ma Lo', 'Taipa', 'Coloane'
+    ],
+    'North Macedonia': [
+        'Aerodrom', 'Butel', 'Centar', 'Čair', 'Gazi Baba', 'Gjorče Petrov', 'Karpoš', 'Kisela Voda', 'Ohrid', 'Studeničani', 'Šuto Orizari', 'Veles', 'Bitola', 'Kumanovo'
+    ],
+    'Madagascar': [
+        'Antananarivo', 'Antsiranana', 'Fianarantsoa', 'Mahajanga', 'Toamasina', 'Toliara'
+    ],
+     'Malawi': [
+        'Central Region', 'Northern Region', 'Southern Region'
+    ],
+      'Malaysia': [
+        'Johor', 'Kedah', 'Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis', 'Penang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'Kuala Lumpur', 'Labuan', 'Putrajaya'
+    ],
+    'Maldives': [
+        'Addu Atoll', 'Fuvahmulah', 'Haa Alif Atoll', 'Haa Dhaalu Atoll', 'Kaafu Atoll', 'Laamu Atoll', 'Lhaviyani Atoll', 'Meemu Atoll', 'Noonu Atoll', 'Raa Atoll', 'Seenu Atoll', 'Shaviyani Atoll', 'Thaa Atoll', 'Vaavu Atoll'
+    ],
+    'Mali': [
+        'Bamako', 'Gao', 'Kayes', 'Kidal', 'Koulikoro', 'Mopti', 'Ségou', 'Sikasso', 'Tombouctou'
+    ],
+     'Marshall Islands': [
+        'Ailinglaplap Atoll', 'Ailuk Atoll', 'Arno Atoll', 'Aur Atoll', 'Bikini Atoll', 'Ebon Atoll', 'Enewetak Atoll', 'Jabat Island', 'Jaluit Atoll', 'Kili Island', 'Kwajalein Atoll', 'Lae Atoll', 'Lib Island', 'Likiep Atoll', 'Majuro Atoll', 'Mal...i', 'Mejit Island', 'Mili Atoll', 'Namdrik Atoll', 'Namu Atoll', 'Rongelap Atoll', 'Rongrik Atoll', 'Taka Atoll', 'Ujae Atoll', 'Ujelang Atoll', 'Utrik Atoll', 'Wotho Atoll', 'Wotje Atoll'
+    ],
+    'Mauritania': [
+        'Adrar', 'Assaba', 'Brakna', 'Dakhlet Nouadhibou', 'Gorgol', 'Guidimaka', 'Hodh Ech Chargui', 'Hodh El Gharbi', 'Inchiri', 'Nouakchott', 'Tagant', 'Tiris Zemmour', 'Trarza'
+    ],
+    'Mauritius': [
+        'Black River', 'Flacq', 'Grand Port', 'Moka', 'Pamplemousses', 'Plaines Wilhems', 'Port Louis', 'Rivière du Rempart', 'Rodrigues', 'Savanne'
+    ],
+     'Mexico': [
+        'Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'Chiapas', 'Chihuahua', 'Coahuila', 'Colima', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo', 'Jalisco', 'México', 'Michoacán', 'Morelos', 'Nayarit', 'Nuevo León', 'Oaxaca', 'Puebla', 'Querétaro', 'Quintana Roo', 'San Luis Potosí', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala', 'Veracruz', 'Yucatán', 'Zacatecas', 'Ciudad de México'
+    ],
+    'Micronesia, Federated States of': [
+        'Chuuk', 'Kosrae', 'Pohnpei', 'Yap'
+    ],
+    'Moldova': [
+        'Anenii Noi', 'Bălți', 'Basarabeasca', 'Bender', 'Briceni', 'Cahul', 'Călărași', 'Căușeni', 'Cimișlia', 'Criuleni', 'Dondușeni', 'Drochia', 'Dubăsari', 'Edineț', 'Fălești', 'Florești', 'Glodeni', 'Hîncești', 'Ialoveni', 'Leova', 'Nisporeni', 'Ocnița', 'Orhei', 'Rezina', 'Rîșcani', 'Sîngerei', 'Soroca', 'Strășeni', 'Ștefan Vodă', 'Taraclia', 'Telenești', 'Ungheni'
+    ],
+    'Mongolia': [
+        'Arkhangai', 'Bayan-Ölgii', 'Bayankhongor', 'Bulgan', 'Darkhan-Uul', 'Dornod', 'Dornogovi', 'Dundgovi', 'Govi-Altai', 'Govisümber', 'Khentii', 'Khovd', 'Khövsgöl', 'Ömnögovi', 'Orkhon', 'Övörkhangai', 'Selenge', 'Sükhbaatar', 'Töv', 'Uvs', 'Zavkhan'
+    ],
+     'Montenegro': [
+        'Andrijevica', 'Bar', 'Berane', 'Bijelo Polje', 'Budva', 'Cetinje', 'Danilovgrad', 'Gusinje', 'Herceg Novi', 'Kolašin', 'Kotor', 'Mojkovac', 'Nikšić', 'Plav', 'Pljevlja', 'Plužine', 'Podgorica', 'Rožaje', 'Šavnik', 'Tivat', 'Ulcinj', 'Žabljak'
+    ],
+    'Montserrat': [
+        'Saint Anthony', 'Saint Georges', 'Saint Peter', 'Saint Georges', 'Saint Peter'
+    ],
+     'Monaco': [
+        'Fontvieille', 'La Condamine', 'Monaco-Ville', 'Monte Carlo'
+    ],
+     'Morocco': [
+        'Al Hoceïma', 'Beni Mellal-Khenifra', 'Casablanca-Settat', 'Dakhla-Oued Ed-Dahab', 'Draa-Tafilalet', 'Fès-Meknès', 'Guelmim-Oued Noun', 'Laâyoune-Sakia El Hamra', 'Marrakesh-Safi', 'Oriental', 'Rabat-Salé-Kénitra', 'Souss-Massa', 'Tanger-Tetouan-Al Hoceima'
+    ],
+     'Mozambique': [
+        'Cabo Delgado', 'Gaza', 'Inhambane', 'Manica', 'Maputo City', 'Maputo Province', 'Nampula', 'Niassa', 'Sofala', 'Tete', 'Zambezia'
+    ],
+     'Myanmar': [
+        'Ayeyarwady', 'Bago', 'Chin State', 'Kachin State', 'Kayah State', 'Kayin State', 'Magway', 'Mandalay', 'Mon State', 'Naypyidaw Union Territory', 'Rakhine State', 'Sagaing', 'Shan State', 'Tanintharyi', 'Yangon'
+    ],
+     'Nepal': [
+        'Province No. 1', 'Province No. 2', 'Bagmati Province', 'Gandaki Province', 'Lumbini Province', 'Karnali Province', 'Sudurpashchim Province'
+    ],
+     'Netherlands': [
+        'Drenthe', 'Flevoland', 'Friesland', 'Gelderland', 'Groningen', 'Limburg', 'North Brabant', 'North Holland', 'Overijssel', 'South Holland', 'Utrecht', 'Zeeland'
+    ],
+     'New Zealand': [
+        'Northland', 'Auckland', 'Waikato', 'Bay of Plenty', 'Gisborne', 'Hawke\'s Bay', 'Taranaki', 'Manawatu-Wanganui', 'Wellington', 'Tasman', 'Nelson', 'Marlborough', 'West Coast', 'Canterbury', 'Otago', 'Southland'
+    ],
+    'Nicaragua': [
+        'Boaco', 'Carazo', 'Chinandega', 'Chontales', 'Estelí', 'Granada', 'Jinotega', 'León', 'Madriz', 'Managua', 'Masaya', 'Matagalpa', 'Nueva Segovia', 'Río San Juan', 'Rivas'
+    ],
+    'Niger': [
+        'Agadez', 'Diffa', 'Dosso', 'Maradi', 'Tahoua', 'Tillabéri', 'Zinder'
+    ],
+     'Niue': [
+        'Alofi North', 'Alofi South', 'Avatele', 'Hakupu', 'Hikutavake', 'Lakepa', 'Makefu', 'Mutalau', 'Namukulu', 'Tamakautoga', 'Toi', 'Tuapa'
+    ],
+     'Norfolk Island': [
+        'Kingston', 'Cascade'
+    ],
+     'Northern Mariana Islands': [
+        'Rota', 'Saipan', 'Tinian'
+    ],
+    'Norway': [
+        'Akershus', 'Aust-Agder', 'Buskerud', 'Finnmark', 'Hedmark', 'Hordaland', 'Møre og Romsdal', 'Nordland', 'Oppland', 'Oslo', 'Rogaland', 'Sogn og Fjordane', 'Telemark', 'Troms', 'Trøndelag', 'Vest-Agder', 'Vestfold', 'Østfold'
     ]
+
+
+
+
+
 
 
 

@@ -1,7 +1,9 @@
 import os
 from datetime import timedelta
 from dotenv import load_dotenv
-
+from clean import app
+from flask_mail import Mail
+from itsdangerous import URLSafeTimedSerializer 
 
 load_dotenv()
 
@@ -27,12 +29,23 @@ class Config:
     MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER', 'udemezue0009@gmail.com')
     PAYSTACK_PUBLIC_KEY = os.getenv('PAYSTACK_PUBLIC_KEY')
     PAYSTACK_SECRET_KEY = os.getenv('PAYSTACK_SECRET_KEY')
+    SERVER_URL = 'http://127.0.0.1:1000' if os.getenv('FLASK_ENV') == 'development' else 'https://country-api-1.onrender.com'
     # SECRET_KEY = os.getenv('SECRET_KEY') or 'your_secret_key'
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'school-project.db')
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
     # USE_SESSION_FOR_NEXT = True
     # REMEMBER_COOKIE_DURATION = timedelta(seconds=20)
-    FORUM_TITLE = "School Portal Forum"
-    FORUM_SUBTITLE = "A place for students, teachers, parents, and principals to communicate"
-    FORUM_TOPICS_PER_PAGE = 20
-    FORUM_POSTS_PER_PAGE = 10
+    # FORUM_TITLE = "School Portal Forum"
+    # FORUM_SUBTITLE = "A place for students, teachers, parents, and principals to communicate"
+    # FORUM_TOPICS_PER_PAGE = 20
+    # FORUM_POSTS_PER_PAGE = 10
+
+
+mine = os.getenv('SALT')
+salt = mine
+app.config.from_object(Config)
+mail = Mail(app)
+
+serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'], salt)
+with app.app_context():
+    pass

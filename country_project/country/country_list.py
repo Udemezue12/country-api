@@ -101,7 +101,7 @@ def country_choices():
                                                                    'Togo'), ('Tonga', 'Tonga'), ('Trinidad and Tobago', 'Trinidad and Tobago'),
         ('Tunisia', 'Tunisia'), ('Turkiye(Formerly Turkey)', 'Turkiye(Formerly Turkey)'), ('Turkmenistan',
                                                                              'Turkmenistan'), ('Tuvalu', 'Tuvalu'), ('Uganda', 'Uganda'),
-        ('Ukraine', 'Ukraine'), ('United Arab Emirates', 'United Arab Emirates'), ('GB',
+        ('Ukraine', 'Ukraine'), ('United Arab Emirates', 'United Arab Emirates'), ('United Kingdom',
                                                                                    'United Kingdom'), ('United States', 'United States'), ('Uruguay', 'Uruguay'),
         ('Uzbekistan', 'Uzbekistan'), ('Vanuatu', 'Vanuatu'), ('Venezuela',
                                                                'Venezuela'), ('Vietnam', 'Vietnam'), ('Yemen', 'Yemen'),

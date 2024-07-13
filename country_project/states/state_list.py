@@ -851,6 +851,39 @@ states = {
     ],
     'Tuvalu': [
         'Funafuti', 'Nanumanga', 'Nanumea', 'Niutao', 'Nui', 'Nukufetau', 'Nukulaelae', 'Vaitupu'
+    ],
+     'Ukraine': [
+        'Autonomous Republic of Crimea', 'Cherkasy Oblast', 'Chernihiv Oblast', 'Chernivtsi Oblast', 'Dnipropetrovsk Oblast', 'Donetsk Oblast', 'Ivano-Frankivsk Oblast', 'Kharkiv Oblast', 'Kherson Oblast', 'Khmelnytskyi Oblast', 'Kiev', 'Kiev Oblast', 'Kirovohrad Oblast', 'Luhansk Oblast', 'Lviv Oblast', 'Mykolaiv Oblast', 'Odessa Oblast', 'Poltava Oblast', 'Rivne Oblast', 'Sumy Oblast', 'Ternopil Oblast', 'Vinnytsia Oblast', 'Volyn Oblast', 'Zakarpattia Oblast', 'Zaporizhzhia Oblast', 'Zhytomyr Oblast'
+    ],
+     'United Arab Emirates': [
+        'Abu Dhabi', 'Ajman', 'Dubai', 'Fujairah', 'Ras Al Khaimah', 'Sharjah', 'Umm Al Quwain'
+    ],
+     'United Kingdom': [
+        'England', 'Northern Ireland', 'Scotland', 'Wales'
+    ],
+     'Uruguay': [
+        'Artigas', 'Canelones', 'Cerro Largo', 'Colonia', 'Durazno', 'Flores', 'Florida', 'Lavalleja', 'Maldonado', 'Montevideo', 'Paysandú', 'Río Negro', 'Rivera', 'Rocha', 'Salto', 'San José', 'Soriano', 'Tacuarembó', 'Treinta y Tres'
+    ],
+    'Uzbekistan': [
+        'Andijan Region', 'Bukhara Region', 'Fergana Region', 'Jizzakh Region', 'Karakalpakstan', 'Namangan Region', 'Navoiy Region', 'Qashqadaryo Region', 'Samarkand Region', 'Sirdaryo Region', 'Surxondaryo Region', 'Tashkent', 'Tashkent Region', 'Xorazm Region'
+    ],
+    'Vanuatu': [
+        'Malampa', 'Penama', 'Sanma', 'Shefa', 'Tafea', 'Torba'
+    ],
+    'Venezuela': [
+        'Amazonas', 'Anzoátegui', 'Apure', 'Aragua', 'Barinas', 'Bolívar', 'Carabobo', 'Cojedes', 'Delta Amacuro', 'Falcón', 'Guárico', 'Lara', 'Mérida', 'Miranda', 'Monagas', 'Nueva Esparta', 'Portuguesa', 'Sucre', 'Táchira', 'Trujillo', 'Vargas', 'Yaracuy', 'Zulia'
+    ],
+     'Vietnam': [
+        'An Giang', 'Bà Rịa - Vũng Tàu', 'Bắc Giang', 'Bắc Kạn', 'Bạc Liêu', 'Bắc Ninh', 'Bến Tre', 'Bình Định', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Cà Mau', 'Cao Bằng', 'Đắk Lắk', 'Đắk Nông', 'Điện Biên', 'Đồng Nai', 'Đồng Tháp', 'Gia Lai', 'Hà Giang', 'Hà Nam', 'Hà Tĩnh', 'Hải Dương', 'Hậu Giang', 'Hòa Bình', 'Hưng Yên', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lai Châu', 'Lâm Đồng', 'Lạng Sơn', 'Lào Cai', 'Long An', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận', 'Phú Thọ', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sóc Trăng', 'Sơn La', 'Tây Ninh', 'Thái Bình', 'Thái Nguyên', 'Thanh Hóa', 'Thừa Thiên Huế', 'Tiền Giang', 'Trà Vinh', 'Tuyên Quang', 'Vĩnh Long', 'Vĩnh Phúc', 'Yên Bái', 'Can Tho', 'Da Nang', 'Hai Phong', 'Hanoi', 'Ho Chi Minh City'
+    ],
+     'Yemen': [
+        'Abyan', 'Ad Dali', 'Aden', 'Al Bayda', 'Al Hudaydah', 'Al Jawf', 'Al Mahrah', 'Al Mahwit', 'Amanat Al Asimah', 'Amran', 'Dhamar', 'Hadhramaut', 'Hajjah', 'Ibb', 'Lahij', 'Ma\rib', 'Raymah', 'Saada', 'Shabwah', 'Socotra', 'Taiz'
+    ],
+     'Zambia': [
+        'Central Province', 'Copperbelt Province', 'Eastern Province', 'Luapula Province', 'Lusaka Province', 'Muchinga Province', 'Northern Province', 'North-Western Province', 'Southern Province', 'Western Province'
+    ],
+    'Zimbabwe': [
+        'Bulawayo', 'Harare', 'Manicaland', 'Mashonaland Central', 'Mashonaland East', 'Mashonaland West', 'Masvingo', 'Matabeleland North', 'Matabeleland South', 'Midlands'
     ]
     
 

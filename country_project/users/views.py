@@ -164,3 +164,7 @@ def hashcode(hashCode):
             flash("Password fields do not match.", "danger")
 
     return render_template("reset_password.html", form=form, hashCode=hashCode)
+
+@users.route('/django/docs', methods=['GET'])
+def django_docs():
+    return render_template('flask.html')

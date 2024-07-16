@@ -165,7 +165,7 @@ def hashcode(hashCode):
 
     return render_template("reset_password.html", form=form, hashCode=hashCode)
 
-@users.route('/django/docs', methods=['GET'])
+@users.route('/django/instructions', methods=['GET'])
 @login_required
 def django_docs():
     return render_template('flask.html')

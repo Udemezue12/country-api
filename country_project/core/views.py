@@ -27,7 +27,7 @@ def index():
     return render_template('index.html')
 
 
-@core.route('/dashboard')
+@core.route('/flask/instructions', methods=['GET'])
 @login_required
 def dashboard():
     if current_user.role != 'api-user':

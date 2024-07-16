@@ -30,11 +30,10 @@ def index():
 @core.route('/flask/instructions', methods=['GET'])
 @login_required
 def dashboard():
-    if current_user.role != 'api-user':
-
-        flash('Unauthorized access!', 'danger')
-        return redirect(url_for('core.index'))
-    return render_template('dashboard.html', name=current_user.username)
+    # if current_user.role != 'api-user':
+    #     flash('Unauthorized access!', 'danger')
+    #     return redirect(url_for('core.index'))
+    return render_template('dashboard.html')
 
 
 @login_required

@@ -167,7 +167,7 @@ def hashcode(hashCode):
 
 @users.route('/django/instructions', methods=['GET'])
 @login_required
-def django_docs():
+def django():
     return render_template('flask.html')
 
     

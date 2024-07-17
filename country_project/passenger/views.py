@@ -131,6 +131,10 @@ def register():
             
             if current_user.is_authenticated:
                 logout_user()
+                
+
+            if user.role == 'api-user':
+                return redirect(url_for('passenger.passenger_form', user_id=user.id))
 
             flash('Thanks for registering! Please log in.', 'success')
             return redirect(url_for('users.login'))

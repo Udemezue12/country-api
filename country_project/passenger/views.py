@@ -57,20 +57,22 @@ def passenger_dashboard():
 @passenger.route('/passenger_form/<int:user_id>', methods=['GET', 'POST'])
 def passenger_form(user_id):
     form = APIUserForm()
-    form.country.choices = country_choices()
+    # form.country.choices = country_choices()
     if request.method == 'POST':
-        selected_country = request.form.get('country')
-        form.state.choices = [(state, state)
-                              for state in states.get(selected_country, [])]
-    if form.validate_on_submit():
+
+        # selected_country = request.form.get('country')
+        # form.state.choices = [(state, state)
+        #                       for state in states.get(selected_country, [])]
+        if form.validate_on_submit():
+
         #     picture_filename = secure_filename(form.picture.data.filename)
         #     id_document_filename = secure_filename(form.id_document.data.filename)
 
         #     form.picture.data.save(os.path.join(IMAGE, picture_filename))
         #     form.id_document.data.save(
         #         os.path.join(DOCUMENT, id_document_filename))
-        try:
-            passenger = APIUser(
+            try:
+                passenger = APIUser(
 
 
 
@@ -82,14 +84,16 @@ def passenger_form(user_id):
                 
 
             )
-            db.session.add(passenger)
-            db.session.commit()
-            flash('Passenger information submitted successfully!', 'success')
-            return redirect(url_for('users.login'))
-        except ValueError as e:
-            flash(str(e), 'danger')
-        except IntegrityError as e:
-            db.session.rollback()
+                
+                db.session.add(passenger)
+                db.session.commit()
+                flash('Passenger information submitted successfully!', 'success')
+                return redirect(url_for('users.login'))
+            except ValueError as e:
+                flash(str(e), 'danger')
+            except IntegrityError as e:
+                flash(str(e), 'danger')
+                db.session.rollback()
             logging.error("IntegrityError occurred: %s", e)
             flash("An error occurred during submission. Please try again.", 'danger')
     return render_template('passenger_form.html', form=form)

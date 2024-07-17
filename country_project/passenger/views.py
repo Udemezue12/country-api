@@ -10,6 +10,7 @@ from country_project.models import User, APIUser
 from country_project.login import login_manager
 from country_project.database import db
 import logging
+from config import salt
 from country_project.code.states import states
 from country_project.country.country_list import country_choices
 # import pycountry
@@ -114,7 +115,7 @@ def register():
             return redirect(url_for('passenger.register'))
 
         try:
-            password = form.password.data
+            password = form.password.data + salt
             validate_password(password)
 
             user = User(

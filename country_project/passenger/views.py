@@ -2,7 +2,7 @@ import requests
 import os
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, logout_user
 from sqlalchemy.exc import IntegrityError
 from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, Blueprint, Response
 from country_project.forms import APIUserForm, APIUserRegistrationForm
@@ -128,10 +128,11 @@ def register():
             db.session.add(user)
             db.session.commit()
 
-            if user.role == 'api-user':
-                return redirect(url_for('passenger.passenger_form', user_id=user.id))
+            
+            if current_user.is_authenticated:
+                logout_user()
 
-            flash('Thanks for registering!', 'success')
+            flash('Thanks for registering! Please log in.', 'success')
             return redirect(url_for('users.login'))
         except ValueError as e:
             flash(str(e), 'danger')

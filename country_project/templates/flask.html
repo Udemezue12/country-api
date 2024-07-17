@@ -191,6 +191,35 @@
                 
             </div>
         </div>
+        <div class="section">
+            <div class="card">
+                <div class="card-header">
+                  In the Urls.py of your app folder,not project folder
+                </div>
+                    <div class="card-body">
+                        <pre>
+                            <p><strong>Your Urls.py would like it is</strong></p>
+                            <code>
+                                from django.urls import path
+                                from django.contrib.auth import views as auth_views
+                                from . import views
+                                
+                                urlpatterns = [
+                                    path('', views.index, name='index'),
+                                    path('register/', views.register, name='register'),
+                                    path('fetch-countries-choices/', views.fetch_countries_choices, name='fetch_countries_choices'),
+                                    path('fetch-states/&lt;str:country_code&gt;/', views.fetch_states, name='fetch_states'),
+                                ]
+                                </code>
+                        
+                            
+
+                            
+                        </pre>
+                    </div>
+                
+            </div>
+        </div>
 
         <div class="section">
             

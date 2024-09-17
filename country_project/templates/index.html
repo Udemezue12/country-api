@@ -1,70 +1,50 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<div class="container jigga">
-    <div>
 
-        <h1 class="head">Welcome {{current_user.username}}</h1>
-        <a href="{{url_for('core.dashboard')}}" class="link-arrow,btn"><strong>Click Here to View the Instructions on how to use it in your Flask Project</strong></a>
+<div class="container jigga py-5">
+    <div class="text-center">
+        <h1 class="head">Welcome {{ current_user.username }}</h1>
+        <a href="{{ url_for('core.dashboard') }}" class="btn btn-primary my-3">
+            <strong>Click Here to View the Instructions on how to use it in your Flask Project</strong>
+        </a>
         <br>
-        <br>
-        <a href="{{url_for('users.django')}}" class="link-arrow,btn"><strong>Click Here to View the Instructions on how to use it in your Django Project</strong></a>
-
+        <a href="{{ url_for('users.django') }}" class="btn btn-secondary my-3">
+            <strong>Click Here to View the Instructions on how to use it in your Django Project</strong>
+        </a>
     </div>
-
 </div>
-
-<style>
-    /* Custom styles for About Us page */
-    .about-container {
-        background-color: #5f8ab5;
-        padding: 50px 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    }
-    .jigga {
-        background-color: rgb(87, 91, 150);
-    }
-
-    .head{
-        color: white;
-    }
-
-    .team-list {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .team-member {
-        margin-bottom: 20px;
-        padding: 15px;
-        border-radius: 5px;
-        background-color: hsl(51, 28%, 48%);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .team-member h4 {
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-</style>
-
 
 <div class="container mt-5 jigga">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="about-container">
-                <h2 class="text-center mb-4">About Us</h2>
-                <p class="text-center">Welcome to our website! We are here to help with the Auto-population of Countries and their various States/District/Provinces</p>
-                <p class="text-center mb-4">Some Countries were showned by states,district and provinces </p>
-                <p class="text-center">Our mission is to enlighten people,Please bear with Us if some information seems outdated or incorrect.</p>
-                
+            <div class="about-container text-white text-center p-4 rounded shadow-lg">
+                <h2 class="mb-4">About Us</h2>
+                <p>Welcome to our website! We are here to help with the auto-population of countries and their various states/districts/provinces.</p>
+                <p>Some countries are shown by states, districts, and provinces.</p>
+                <p>Our mission is to enlighten people. Please bear with us if some information seems outdated or incorrect.</p>
             </div>
         </div>
     </div>
 </div>
 
-
+<style>
+    /* Custom styles for this page */
+    .jigga {
+        background-color: rgb(87, 91, 150);
+        padding: 50px 0;
+    }
     
+    .head {
+        color: white;
+    }
+
+    .about-container {
+        background-color: #5f8ab5;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+</style>
 
 {% endblock %}

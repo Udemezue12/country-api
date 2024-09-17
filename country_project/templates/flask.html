@@ -1,260 +1,175 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
-    <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
 
-        .container {
-            margin-top: 50px;
-        }
+<div class="container mt-5">
+    <div class="section mb-5">
+        <h2 class="section-heading text-primary border-bottom pb-2">How to Use the API</h2>
+        <p class="mt-4">Welcome to the API usage instructions. Here you will find how to integrate our API into your Django project. Follow the steps below for implementation details.</p>
+    </div>
 
-        .section {
-            margin-bottom: 40px;
-        }
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                Creating Views
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+from django.shortcuts import render, redirect
+import requests
+from .forms import UserRegistrationForm
+from django.http import JsonResponse
 
-        .section-heading {
-            border-bottom: 2px solid #6c757d;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            color: #007bff;
-        }
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')  
+    else:
+        form = UserRegistrationForm()
 
-        pre {
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 5px;
-            overflow: auto;
-        }
+    return render(request, 'register.html', {'form': form})
 
-        .card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+def fetch_countries_choices(request):
+    form = UserRegistrationForm()
+    countries = form.fetch_countries_choices()
+    return JsonResponse(countries, safe=False)
 
-        .card-header {
-            background-color: #007bff;
-            color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            border-radius: 10px 10px 0 0;
-            padding: 10px 20px;
-            font-size: 1.25em;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-    </style>
-
-
-
-<div class="container">
-
-        <div class="section">
-            <h2 class="section-heading">How to Use the API</h2>
-            <p>Welcome to the API usage instructions. Here you will find how to integrate our API into your Django project. Follow the steps below for implementation details.</p>
-        </div>
-
-        <div class="section">
-            
-            <div class="card">
-                <div class="card-header">
-                    Creating Views
-                </div>
-                <div class="card-body">
-                    <pre>
-            from django.shortcuts import render, redirect
-                        import requests
-                from .forms import  UserRegistrationForm
-                        from django.http import JsonResponse
-                        
-
-                    </pre>
-                    <pre>
-                    def register(request):
-                    if request.method == 'POST':
-                            form = UserRegistrationForm(request.POST)
-                            if form.is_valid():
-                                user = form.save()
-                                login(request, user)
-                                return redirect('index')  
-                        else:
-                            form = UserRegistrationForm()
-                    
-                        return render(request, 'register.html', {'form': form})
-                    
-                    def fetch_countries_choices(request):
-                        form = UserRegistrationForm()
-                        countries = form.fetch_countries_choices()
-                        return JsonResponse(countries, safe=False)
-                    
-                    def fetch_states(request, country_code):
-                        url = f"https://country-api-1.onrender.com/states/states/{country_code}/"
-                        response = requests.get(url)
-                        if response.status_code == 200:
-                            states = response.json().get(country_code, [])
-                            return JsonResponse(states, safe=False)
-                        else:
-                            return JsonResponse([], safe=False)
-
-    <strong>MAKE SURE CHOICES ARE ADDED</strong>
-</pre>
-                    
-                </div>
+def fetch_states(request, country_code):
+    url = f"https://country-api-1.onrender.com/states/states/{country_code}/"
+    response = requests.get(url)
+    if response.status_code == 200:
+        states = response.json().get(country_code, [])
+        return JsonResponse(states, safe=False)
+    else:
+        return JsonResponse([], safe=False)
+                </pre>
+                <strong class="text-primary mt-3 d-block">MAKE SURE CHOICES ARE ADDED</strong>
             </div>
         </div>
+    </div>
 
-        <div class="section">
-            
-            <div class="card">
-                <div class="card-header">
-                    Creating Forms
-                </div>
-                <div class="card-body">
-                    <pre>
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                Creating Forms
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+from django import forms
+from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+import requests
+from .models import CustomUser
+from django.contrib.auth.forms import UserCreationForm
 
-                    from django import forms
-                    from django.core.exceptions import ValidationError
-                    from django.contrib.auth import authenticate
-                    from django.contrib.auth.models import User
-                    import requests
-                    from .models import CustomUser
-                    from django.contrib.auth.forms import UserCreationForm
-        
+class CustomChoiceField(forms.ChoiceField):
+    def validate(self, value):
+        pass  # Override to bypass validation
 
+class UserRegistrationForm(UserCreationForm):
+    first_name = forms.CharField(label='First Name', max_length=100)
+    last_name = forms.CharField(label='Last Name', max_length=100)
+    phone_number = forms.CharField(label='Phone Number', max_length=20)
+    username = forms.CharField(label='Username', max_length=15)
+    email = forms.EmailField(label='Email', help_text='A valid email address, please.', required=True)
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise ValidationError('The email has already been registered')
+        return email
 
-                    class CustomChoiceField(forms.ChoiceField):
-                    def validate(self, value):
-                        pass  # (Override to bypass validation for this field)
-                
-                
-                class UserRegistrationForm(UserCreationForm):
-                    first_name = forms.CharField(label='First Name', max_length=100)
-                    last_name = forms.CharField(label='Last Name', max_length=100)
-                    phone_number = forms.CharField(label='Phone Number', max_length=20)
-                    username = forms.CharField(label='Username', max_length=15)
-                    email = forms.EmailField(
-                        label='Email', help_text='A valid email address, please.', required=True)
-                  
-                
-                    def clean_email(self):
-                        email = self.cleaned_data.get('email')
-                        if User.objects.filter(email=email).exists():
-                            raise ValidationError('The email has already been registered')
-                        return email
-                
-                    country = CustomChoiceField(
-                        label='Country', choices=[], widget=forms.Select(attrs={'id': 'country'}))
-                    state = CustomChoiceField(
-                        label='State', choices=[], widget=forms.Select(attrs={'id': 'state'}))
-                
-                    class Meta:
-                        model = CustomUser
-                        fields = ['first_name', 'last_name', 'email', 'password1',
-                                  'password2', 'phone_number', 'country', 'state', 'username']
-                
-                    def __init__(self, *args, **kwargs):
-                        super(UserRegistrationForm, self).__init__(*args, **kwargs)
-                        self.fields['country'].choices = self.fetch_countries_choices()
-                        self.fields['state'].choices = []
-                
-                    def fetch_countries_choices(self):
-                        url = "https://country-api-1.onrender.com/country/countries"
-                        response = requests.get(url)
-                        if response.status_code == 200:
-                            return [(country[0], country[1]) for country in response.json()]
-                        else:
-                            return []
-                    </pre>
-                </div>
+    country = CustomChoiceField(label='Country', choices=[], widget=forms.Select(attrs={'id': 'country'}))
+    state = CustomChoiceField(label='State', choices=[], widget=forms.Select(attrs={'id': 'state'}))
+
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'email', 'password1', 'password2', 'phone_number', 'country', 'state', 'username']
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['country'].choices = self.fetch_countries_choices()
+        self.fields['state'].choices = []
+
+    def fetch_countries_choices(self):
+        url = "https://country-api-1.onrender.com/country/countries"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return [(country[0], country[1]) for country in response.json()]
+        else:
+            return []
+                </pre>
             </div>
         </div>
-        <div class="section">
-            <div class="card">
-                <div class="card-header">
-                  In Your HTML TEMPLATES
-                </div>
-                    <div class="card-body">
-                        <pre>
-                            
+    </div>
 
-                            <p><strong>Your Html Templates would be like it is</strong></p>
-                        </pre>
-                    </div>
-                
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                In Your HTML Templates
+            </div>
+            <div class="card-body">
+                <p><strong>Your HTML Templates will be like this:</strong></p>
             </div>
         </div>
-        <div class="section">
-            <div class="card">
-                <div class="card-header">
-                  In the Urls.py of your app folder,not project folder
-                </div>
-                    <div class="card-body">
-                        <pre>
-                            <p><strong>Your Urls.py would be like this</strong></p>
-                            <code>
-                                from django.urls import path
-                                from django.contrib.auth import views as auth_views
-                                from . import views
-                                 
-                                urlpatterns = [
-                                    path('', views.index, name='index'),
-                                    path('register/', views.register, name='register'),
-                                    path('fetch-countries-choices/', views.fetch_countries_choices, name='fetch_countries_choices'),
-                                    path('fetch-states/&lt;str:country_code&gt;/', views.fetch_states, name='fetch_states'),
-                                ]
-                                </code>
-                        
-                            
+    </div>
 
-                            
-                        </pre>
-                    </div>
-                
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                In the Urls.py of your app folder, not the project folder
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('register/', views.register, name='register'),
+    path('fetch-countries-choices/', views.fetch_countries_choices, name='fetch_countries_choices'),
+    path('fetch-states/&lt;str:country_code&gt;/', views.fetch_states, name='fetch_states'),
+]
+                </pre>
             </div>
         </div>
+    </div>
 
-        <div class="section">
-            
-            <div class="card">
-                <div class="card-header">
-                    Implementing JavaScript 
-                </div>
-                <div class="card-body">
-                    <pre>
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                Implementing JavaScript
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+<strong>For Auto-Populating the Countries</strong>
 
-            <strong>For Auto-Populating the Countries</strong>
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                function fetchCountries() {
-                    fetch('https://country-api-1.onrender.com//state/countries')
-                        .then(response => response.json())
-                        .then(data => {
-                            const countrySelect = document.getElementById('country');
-                            countrySelect.innerHTML = '';  // Clear existing options
-                            data.forEach(country => {
-                                const option = document.createElement('option');
-                                option.value = country[0];  // country code
-                                option.textContent = country[1];  // country name
-                                countrySelect.appendChild(option);
-                            });
-                        })
-                        .catch(error => console.error('Error fetching countries:', error));
-                }
-            
-                fetchCountries();
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    function fetchCountries() {
+        fetch('https://country-api-1.onrender.com/state/countries')
+            .then(response => response.json())
+            .then(data => {
+                const countrySelect = document.getElementById('country');
+                countrySelect.innerHTML = '';  // Clear existing options
+                data.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country[0];  // country code
+                    option.textContent = country[1];  // country name
+                    countrySelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    }
 
+    fetchCountries();
+});
 
-     <strong>For Auto-Populating the states</strong>
-    document.addEventListener('DOMContentLoaded', function() {
+<strong>For Auto-Populating the States</strong>
+
+document.addEventListener('DOMContentLoaded', function() {
     const countrySelect = document.getElementById('country');
     const stateSelect = document.getElementById('state');
 
@@ -281,13 +196,12 @@
         }
     });
 });
-                    </pre>
-                </div>
+                </pre>
             </div>
         </div>
     </div>
-    <a href="{{url_for('core.dashboard')}}" class="link-arrow,btn"><strong>Click Here to View the Instructions on how to use it in your FlaskProject</strong></a>
-    <br>
-    
+</div>
 
-{% endblock  %}
+<a href="{{url_for('core.dashboard')}}" class="btn btn-primary mt-4">Click Here to View the Instructions on How to Use it in Your Flask Project</a>
+
+{% endblock %}

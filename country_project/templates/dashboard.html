@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -52,17 +52,16 @@
         }
     </style>
 
+    <div class="container">
 
-
-<div class="container">
-
+        <!-- Section: How to Use the API -->
         <div class="section">
             <h2 class="section-heading">How to Use the API</h2>
             <p>Welcome to the API usage instructions. Here you will find how to integrate our API into your Flask project. Follow the steps below for implementation details.</p>
         </div>
 
+        <!-- Section: Creating Views -->
         <div class="section">
-            
             <div class="card">
                 <div class="card-header">
                     Creating Views
@@ -72,190 +71,168 @@
     from flask import Blueprint, request, jsonify, render_template, flash, url_for
     from sqlalchemy.exc import IntegrityError
 
-                    </pre>
-                    <pre>
-def fetch_country_choices():
-    url = "https://country-api-1.onrender.com/country/countries"
-    response = requests.get(url)
-    if response.status_code == 200:
-        return [(country, country) for country in response.json()]
-    else:
-        return []
+    def fetch_country_choices():
+        url = "https://country-api-1.onrender.com/country/countries"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return [(country, country) for country in response.json()]
+        else:
+            return []
 
+    def fetch_states():
+        url = "https://country-api-1.onrender.com/states/states"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return {}
 
-def fetch_states():
-    url = "https://country-api-1.onrender.com/states/states"
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return {} 
-
-states = fetch_states()           
-
+    states = fetch_states()
 
     def passenger_form():
-    form = UserRegistrationForm()
-    
-    if request.method == 'POST':
-        selected_country = request.form.get('country')
-        form.state.choices = [(state, state)
-                              for state in states.get(selected_country, [])]
-        form.country.choices = fetch_country_choices()
-           
-        try:
-            user = User(
+        form = UserRegistrationForm()
+        if request.method == 'POST':
+            selected_country = request.form.get('country')
+            form.state.choices = [(state, state)
+                                  for state in states.get(selected_country, [])]
+            form.country.choices = fetch_country_choices()
 
-
-
-                user_id=user_id,
-                first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                date_of_birth=form.date_of_birth.data,
-                phone_number=form.phone_number.data,
-                country=form.country.data,
-                state=form.state.data
-                
-
-            )
-            db.session.add(user)
-            db.session.commit()
-            flash('User information submitted successfully!', 'success')
-            return redirect(url_for('users.login'))
-        except ValueError as e:
-            flash(str(e), 'danger')
-        except IntegrityError as e:
-            db.session.rollback()
-            logging.error("IntegrityError occurred: %s", e)
-            flash("An error occurred during submission. Please try again.", 'danger')
-    return render_template('user_form.html', form=form)
+            try:
+                user = User(
+                    user_id=user_id,
+                    first_name=form.first_name.data,
+                    last_name=form.last_name.data,
+                    date_of_birth=form.date_of_birth.data,
+                    phone_number=form.phone_number.data,
+                    country=form.country.data,
+                    state=form.state.data
+                )
+                db.session.add(user)
+                db.session.commit()
+                flash('User information submitted successfully!', 'success')
+                return redirect(url_for('users.login'))
+            except ValueError as e:
+                flash(str(e), 'danger')
+            except IntegrityError as e:
+                db.session.rollback()
+                logging.error("IntegrityError occurred: %s", e)
+                flash("An error occurred during submission. Please try again.", 'danger')
+        return render_template('user_form.html', form=form)
 
     <strong>MAKE SURE CHOICES ARE ADDED</strong>
-</pre>
-                    
+                    </pre>
                 </div>
             </div>
         </div>
 
+        <!-- Section: Creating Forms -->
         <div class="section">
-            
             <div class="card">
                 <div class="card-header">
                     Creating Forms
                 </div>
                 <div class="card-body">
                     <pre>
+    from flask_wtf import FlaskForm
+    from flask import request, jsonify
+    from wtforms_components import SelectField
+    from wtforms import StringField, PasswordField, SubmitField, DateField, SelectField
+    from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp
 
-        from flask_wtf import FlaskForm
-        from flask import request, jsonify
-        from wtforms_components import SelectField
-        from wtforms import StringField, PasswordField, SubmitField, DateField, SelectFieFileField
-        from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp
-        
-
-
-
-        class UserRegistrationForm(FlaskForm):
+    class UserRegistrationForm(FlaskForm):
         first_name = StringField('First Name', validators=[DataRequired()])
         last_name = StringField('Last Name', validators=[DataRequired()])
-        date_of_birth = DateField(
-            'Date of Birth', format='%Y-%m-%d', validators=[DataRequired()])
-        
+        date_of_birth = DateField('Date of Birth', format='%Y-%m-%d', validators=[DataRequired()])
         country = SelectField('Country', validators=[DataRequired()], validate_choice=False)
         state = SelectField('State', choices=[], validators=[DataRequired()])
-                    
         phone_number = StringField('Phone Number', validators=[
             DataRequired(),
-            Regexp(r'^(\+234\d{10}|0\d{10})$',
-                   message="Invalid phone number. Must be in the format +234XXXXXXXXXX0XXXXXXXXXX")
+            Regexp(r'^(\+234\d{10}|0\d{10})$', message="Invalid phone number. Must be in the format +234XXXXXXXXXX0XXXXXXXXXX")
         ])
         submit = SubmitField('Register')
                     </pre>
                 </div>
             </div>
         </div>
+
+        <!-- Section: In Your HTML TEMPLATES -->
         <div class="section">
             <div class="card">
                 <div class="card-header">
-                  In Your HTML TEMPLATES
-                </div>
-                    <div class="card-body">
-                        <pre>
-                            
-
-                            <p><strong>Make sure you add the respective id to state and country form tags</strong></p>
-                        </pre>
-                    </div>
-                
-            </div>
-        </div>
-
-        <div class="section">
-            
-            <div class="card">
-                <div class="card-header">
-                    Implementing JavaScript 
+                    In Your HTML TEMPLATES
                 </div>
                 <div class="card-body">
                     <pre>
-
-            <strong>For Auto-Populating the Countries</strong>
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                function fetchCountries() {
-                    fetch('https://country-api-1.onrender.com//state/countries')
-                        .then(response => response.json())
-                        .then(data => {
-                            const countrySelect = document.getElementById('country');
-                            countrySelect.innerHTML = '';  // Clear existing options
-                            data.forEach(country => {
-                                const option = document.createElement('option');
-                                option.value = country[0];  // country code
-                                option.textContent = country[1];  // country name
-                                countrySelect.appendChild(option);
-                            });
-                        })
-                        .catch(error => console.error('Error fetching countries:', error));
-                }
-            
-                fetchCountries();
-            });
-
-
-     <strong>For Auto-Populating the states</strong>
-    document.addEventListener('DOMContentLoaded', function() {
-    const countrySelect = document.getElementById('country');
-    const stateSelect = document.getElementById('state');
-
-    countrySelect.addEventListener('change', function() {
-        const selectedCountry = countrySelect.value;
-        console.log(`Selected country: ${selectedCountry}`);
-
-        if (selectedCountry) {
-            fetch(`https://country-api-1.onrender.com/state/get_states/${selectedCountry}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);  // Log the response data to see what's returned
-                    stateSelect.innerHTML = '<option value=""></option>';  // Clear previous options
-                    data.forEach(state => {
-                        const option = document.createElement('option');
-                        option.value = state;
-                        option.textContent = state;
-                        stateSelect.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error fetching states:', error));
-        } else {
-            stateSelect.innerHTML = '<option value=""></option>';
-        }
-    });
-});
+    <p><strong>Make sure you add the respective id to state and country form tags</strong></p>
                     </pre>
                 </div>
             </div>
         </div>
-        <br>
-        <a href="{{url_for('users.django')}}" class="link-arrow,btn"><strong>Click Here to view the Instructions on how to use it in your Django Project</strong></a>
+
+        <!-- Section: Implementing JavaScript -->
+        <div class="section">
+            <div class="card">
+                <div class="card-header">
+                    Implementing JavaScript
+                </div>
+                <div class="card-body">
+                    <pre>
+    <strong>For Auto-Populating the Countries</strong>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        function fetchCountries() {
+            fetch('https://country-api-1.onrender.com/state/countries')
+                .then(response => response.json())
+                .then(data => {
+                    const countrySelect = document.getElementById('country');
+                    countrySelect.innerHTML = '';  // Clear existing options
+                    data.forEach(country => {
+                        const option = document.createElement('option');
+                        option.value = country[0];  // country code
+                        option.textContent = country[1];  // country name
+                        countrySelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching countries:', error));
+        }
+        fetchCountries();
+    });
+
+    <strong>For Auto-Populating the States</strong>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const countrySelect = document.getElementById('country');
+        const stateSelect = document.getElementById('state');
+
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = countrySelect.value;
+            console.log(`Selected country: ${selectedCountry}`);
+
+            if (selectedCountry) {
+                fetch(`https://country-api-1.onrender.com/state/get_states/${selectedCountry}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        stateSelect.innerHTML = '<option value=""></option>';  // Clear previous options
+                        data.forEach(state => {
+                            const option = document.createElement('option');
+                            option.value = state;
+                            option.textContent = state;
+                            stateSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching states:', error));
+            } else {
+                stateSelect.innerHTML = '<option value=""></option>';
+            }
+        });
+    });
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link to Django Instructions -->
+        <a href="{{url_for('users.django')}}" class="btn btn-primary mt-4">Click Here to view the Instructions on how to use it in your Django Project</a>
     </div>
 
-{% endblock  %}
+{% endblock %}

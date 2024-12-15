@@ -2,49 +2,64 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<div class="container jigga py-5">
-    <div class="text-center">
-        <h1 class="head">Welcome {{ current_user.username }}</h1>
-        <a href="{{ url_for('core.dashboard') }}" class="btn btn-primary my-3">
-            <strong>Click Here to View the Instructions on how to use it in your Flask Project</strong>
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+    <div class="text-center text-white">
+        <h1 class="display-4 mb-4">Welcome, {{ current_user.username }}!</h1>
+        <a href="{{ url_for('core.dashboard') }}" class="btn btn-outline-light btn-lg mx-2">
+            <strong>Flask Instructions</strong>
         </a>
-        <br>
-        <a href="{{ url_for('users.django') }}" class="btn btn-secondary my-3">
-            <strong>Click Here to View the Instructions on how to use it in your Django Project</strong>
+        <a href="{{ url_for('users.django') }}" class="btn btn-outline-light btn-lg mx-2">
+            <strong>Django Instructions</strong>
         </a>
     </div>
 </div>
 
-<div class="container mt-5 jigga">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="about-container text-white text-center p-4 rounded shadow-lg">
-                <h2 class="mb-4">About Us</h2>
-                <p>Welcome to our website! We are here to help with the auto-population of countries and their various states/districts/provinces.</p>
-                <p>Some countries are shown by states, districts, and provinces.</p>
-                <p>Our mission is to enlighten people. Please bear with us if some information seems outdated or incorrect.</p>
+<section class="py-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="about-section text-center p-5 rounded shadow-lg" style="background-color: #ffffff;">
+                    <h2 class="mb-4 text-primary">About Us</h2>
+                    <p class="text-muted">Welcome to our platform! We aim to simplify the auto-population of countries and their administrative divisions, including states, districts, and provinces.</p>
+                    <p class="text-muted">Some information may vary across regions, and we are constantly working to keep our data accurate and updated.</p>
+                    <p class="text-muted">Thank you for your understanding and support!</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
-    /* Custom styles for this page */
-    .jigga {
-        background-color: rgb(87, 91, 150);
-        padding: 50px 0;
-    }
-    
-    .head {
-        color: white;
+    .btn-outline-light {
+        border: 2px solid #ffffff;
+        transition: all 0.3s ease;
     }
 
-    .about-container {
-        background-color: #5f8ab5;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    .btn-outline-light:hover {
+        background-color: #ffffff;
+        color: #764ba2;
     }
 
+    .about-section {
+        background: linear-gradient(135deg, #e9eefc, #ffffff);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+    }
+
+    h1, h2 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }
+
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
 </style>
 
 {% endblock %}

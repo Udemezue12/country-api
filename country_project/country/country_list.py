@@ -9,15 +9,11 @@ my_state = Blueprint('my_state', __name__)
 
 
 @my_state.route('/states/states/', methods=['GET'])
-# @login_required
-# @require_api_key
 def states():
     return Response(json.dumps(nation), mimetype='application/json')
 
 
 @country.route('/country/countries', methods=['GET'])
-# @login_required
-# @require_api_key
 def country_choices():
     return [
 

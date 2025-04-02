@@ -75,22 +75,30 @@
                     
                         return (
                             <div>
-                                <label>Country:</label>
-                                <select onChange={handleCountryChange} value={selectedCountry}>
-                                    <option value="">Select a country</option>
-                                    {countries.map(country => (
-                                        <option key={country[0]} value={country[0]}>{country[1]}</option>
-                                    ))}
-                                </select>
-                    
-                                <label>State:</label>
-                                <select>
-                                    <option value="">Select a state</option>
-                                    {states.map((state, index) => (
-                                        <option key={index} value={state}>{state}</option>
-                                    ))}
-                                </select>
-                            </div>
+                                <div>
+    <pre>
+        <code>
+            &lt;label&gt;Country:&lt;/label&gt;
+            &lt;select onChange={handleCountryChange} value={selectedCountry}&gt;
+                &lt;option value=""&gt;Select a country&lt;/option&gt;
+                {countries.map(country =&gt; (
+                    &lt;option key={country[0]} value={country[0]}&gt;{country[1]}&lt;/option&gt;
+                ))}
+            &lt;/select&gt;
+            
+            &lt;label&gt;State:&lt;/label&gt;
+            &lt;select&gt;
+                &lt;option value=""&gt;Select a state&lt;/option&gt;
+                {states.map((state, index) =&gt; (
+                    &lt;option key={index} value={state}&gt;{state}&lt;/option&gt;
+                ))}
+            &lt;/select&gt;
+        </code>
+    </pre>
+</div>
+
+                            
+                            
                         );
                     };
                     

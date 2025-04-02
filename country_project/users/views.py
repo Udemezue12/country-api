@@ -169,5 +169,9 @@ def hashcode(hashCode):
 @login_required
 def django():
     return render_template('flask.html')
+@users.route('/react/instructions', methods=['GET'])
+@login_required
+def react():
+    return render_template('react.html')
 
     

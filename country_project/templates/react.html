@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="section mb-5">
+        <h2 class="section-heading text-primary border-bottom pb-2">How to Use the API</h2>
+        <p class="mt-4">Welcome to the API usage instructions. Here you will find how to integrate our API into your React components or projects. Follow the steps below for implementation details.</p>
+    </div>
+
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                Creating JavaScript File
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+                    import axios from 'axios';
+
+                    const API_BASE_URL = 'https://country-api-1.onrender.com';
+                    
+                    export const fetchCountries = async () => {
+                        try {
+                            const response = await axios.get(`${API_BASE_URL}/country/countries`);
+                            return response.data;  
+                        } catch (error) {
+                            console.error('Error fetching countries:', error);
+                            return [];
+                        }
+                    };
+                    
+                    export const fetchStates = async (country) => {
+                        try {
+                            const response = await axios.get(`${API_BASE_URL}/state/get_states/${country}`);  
+                            console.log('States API Response:', response.data);
+                            return response.data;  
+                        } catch (error) {
+                            console.error('Error fetching states:', error);
+                            return [];
+                        }
+                    };
+                </pre>
+                <strong class="text-primary mt-3 d-block">MAKE SURE AXIOS IS INSTALLED</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                Practical Use in A JSX Component
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">
+                    import React, { useState, useEffect } from "react";
+                    import { fetchCountries, fetchStates } from "./CountryApi"; 
+                    
+                    const ProfileForm = () => {
+                        const [countries, setCountries] = useState([]);
+                        const [states, setStates] = useState([]);
+                        const [selectedCountry, setSelectedCountry] = useState('');
+                    
+                        useEffect(() => {
+                            fetchCountries().then(setCountries);
+                        }, []);
+                    
+                        const handleCountryChange = async (e) => {
+                            const country = e.target.value;
+                            setSelectedCountry(country);
+                            
+                            const statesData = await fetchStates(country);
+                            
+                            setStates(statesData);
+                        };
+                    
+                        return (
+                            <div>
+                                <label>Country:</label>
+                                <select onChange={handleCountryChange} value={selectedCountry}>
+                                    <option value="">Select a country</option>
+                                    {countries.map(country => (
+                                        <option key={country[0]} value={country[0]}>{country[1]}</option>
+                                    ))}
+                                </select>
+                    
+                                <label>State:</label>
+                                <select>
+                                    <option value="">Select a state</option>
+                                    {states.map((state, index) => (
+                                        <option key={index} value={state}>{state}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        );
+                    };
+                    
+                    export default ProfileForm;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <a href="{{url_for('core.dashboard')}}" class="btn btn-primary mt-4">Click Here to View the Instructions on How to Use it in Your Flask Project</a>
+    <a href="{{url_for('users.django')}}" class="btn btn-primary mt-4">Click Here to View the Instructions on How to Use it in Your Django Project</a>
+
+</div>
+
+
+
+{% endblock %}

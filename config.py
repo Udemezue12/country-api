@@ -41,8 +41,8 @@ class Config:
     # FORUM_POSTS_PER_PAGE = 10
 
 
-mine = os.getenv('SALT')
-salt = mine
+salt = os.getenv('SALT')
+# salt = mine
 app.config.from_object(Config)
 mail = Mail(app)
 
